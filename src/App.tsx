@@ -5,6 +5,7 @@ import { MainPageAsync } from "./pages/MainPage/MainPageAsync";
 import {Suspense, useContext, useState} from "react";
 import {ThemeContext} from "./theme/ThemeContext";
 import {useTheme} from "./theme/useTheme";
+import {classNames} from "./utils/classNames/classNames";
 
 export enum Theme {
     LIGHT= 'light',
@@ -15,7 +16,7 @@ const App = () => {
     const {theme,toggleTheme} = useTheme();
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {},[theme])}>
             <button onClick={toggleTheme}>toggle</button>
             <Link to={'/'}>Главная</Link>
             <Link to={'/about'}>О сайте</Link>
